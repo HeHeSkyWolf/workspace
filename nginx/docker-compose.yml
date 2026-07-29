@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:${NGINX_TAG}
+    container_name: nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/conf:/etc/nginx/conf.d/
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - workplace-net
+
+networks:
+  workplace-net:
+    external: true   # <--- Tells Compose to use the network created in Step 1
