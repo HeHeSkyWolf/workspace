@@ -1,6 +1,6 @@
 services:
   gogs:
-    image: gogs/gogs:0.14.3
+    image: gogs/gogs:${GOGS_TAG}
     container_name: gogs
     restart: always
     ports:
@@ -10,3 +10,9 @@ services:
       - GOGS_SECURITY_SECRET_KEY=${GOGS_SECURITY_SECRET_KEY}
     volumes:
       - ./gogs-data:/data # Persists SQLite DB, app config, and repository data
+    networks:
+      - workplace-net
+
+networks:
+  workplace-net:
+    external: true
