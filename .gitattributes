@@ -1,0 +1,11 @@
+# ENV files
+.env text eol=lf
+.env.example text eol=lf
+.env.* text eol=lf
+
+# Docker
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Gogs
+*.ini text eol=lf
