@@ -9,6 +9,7 @@
 
 # Linux
 *.sh text eol=lf
+*.md text eol=lf
 
 # Gogs
 *.ini text eol=lf
