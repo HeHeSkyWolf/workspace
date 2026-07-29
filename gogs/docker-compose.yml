@@ -1,0 +1,12 @@
+services:
+  gogs:
+    image: gogs/gogs:0.14.3
+    container_name: gogs
+    restart: always
+    ports:
+      - "33021:3000" # Web UI (Access at http://localhost:10080)
+      - "33022:22"   # SSH port for Git operations (e.g., git clone ssh://git@host:10022/...)
+    environment:
+      - GOGS_SECURITY_SECRET_KEY=${GOGS_SECURITY_SECRET_KEY}
+    volumes:
+      - ./gogs-data:/data # Persists SQLite DB, app config, and repository data
