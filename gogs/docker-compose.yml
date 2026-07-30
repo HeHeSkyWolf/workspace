@@ -3,9 +3,9 @@ services:
     image: gogs/gogs:${GOGS_TAG}
     container_name: gogs
     restart: always
-    ports:
-      - "33021:3000" # Web UI (Access at http://localhost:33021)
-      - "33022:22"   # SSH port for Git operations (e.g., git clone ssh://git@host:33022/...)
+    expose:
+      - "3000" # Web UI (Access at http://localhost:3000)
+      - "22"   # SSH port for Git operations (e.g., git clone ssh://git@host:22/...)
     environment:
       - GOGS_SECURITY_SECRET_KEY=${GOGS_SECURITY_SECRET_KEY}
     volumes:
