@@ -12,8 +12,8 @@ services:
       - ./nginx-certs:/etc/nginx/ssl:ro
       - ./html/maintenance.html:/var/www/html/maintenance.html
     networks:
-      - workplace-net
+      - workspace-net
 
 networks:
-  workplace-net:
+  workspace-net:
     external: true

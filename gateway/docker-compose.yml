@@ -8,8 +8,8 @@ services:
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d/
     networks:
-      - workplace-net
+      - workspace-net
 
 networks:
-  workplace-net:
+  workspace-net:
     external: true   # <--- Tells Compose to use the network created in Step 1

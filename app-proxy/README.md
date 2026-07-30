@@ -1,6 +1,6 @@
 # App-Proxy
 
-Internal reverse proxy (nginx) that routes to backend services by hostname over the `workplace-net` Docker network.
+Internal reverse proxy (nginx) that routes to backend services by hostname over the `workspace-net` Docker network.
 
 ## Routing
 
@@ -15,8 +15,8 @@ Plain HTTP on port 80 only issues a `301` redirect to HTTPS. All service configs
 ## Prerequisites
 
 - Docker + Docker Compose
-- The `workplace-net` network (created by `../scripts/startup.sh`)
-- The backend containers (`vaultwarden`, `gogs`) running on `workplace-net`
+- The `workspace-net` network (created by `../scripts/startup.sh`)
+- The backend containers (`vaultwarden`, `gogs`) running on `workspace-net`
 - A TLS certificate + key (self-signed or Let's Encrypt) mounted at `/etc/nginx/ssl/`
 
 ## Setup

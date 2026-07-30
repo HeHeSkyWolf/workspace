@@ -1,7 +1,7 @@
 #!/bin/bash
 
-echo "Build the Workplace Network"
-docker network inspect workplace-net >/dev/null 2>&1 || docker network create workplace-net
+echo "Build the Workspace Network"
+docker network inspect workspace-net >/dev/null 2>&1 || docker network create workspace-net
 
 echo "Starting Gateway Nginx"
 cd ../gateway && docker-compose up -d && cd ..

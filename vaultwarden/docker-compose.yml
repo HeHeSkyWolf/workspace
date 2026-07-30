@@ -12,8 +12,8 @@ services:
     volumes:
       - ./vw-data/:/data/
     networks:
-      - workplace-net
+      - workspace-net
 
 networks:
-  workplace-net:
+  workspace-net:
     external: true

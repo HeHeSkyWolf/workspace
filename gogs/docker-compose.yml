@@ -11,8 +11,8 @@ services:
     volumes:
       - ./gogs-data:/data # Persists SQLite DB, app config, and repository data
     networks:
-      - workplace-net
+      - workspace-net
 
 networks:
-  workplace-net:
+  workspace-net:
     external: true
