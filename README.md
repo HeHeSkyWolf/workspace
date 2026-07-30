@@ -6,17 +6,18 @@ Self-hosted development workspace infrastructure running in Docker containers.
 
 | Service | Description | Image |
 |---------|-------------|-------|
-| **nginx** | Reverse proxy with virtual host routing | `nginx:1.30.4-alpine` |
+| **gateway** | Edge reverse proxy routes to app-proxy | `nginx:1.30.4-alpine` |
+| **app-proxy** | Internal reverse proxy, routes to backend services by hostname | `nginx:1.30.4-alpine` |
 | **Gogs** | Self-hosted Git service ([gogs.io](https://gogs.io/)) | `gogs/gogs:0.14.3` |
 
 ## Quick Start
 
 ```bash
-# Set up gogs configs
+# Set up configs
+cp app-proxy/.env.example app-proxy/.env
+cp gateway/.env.example gateway/.env
 cp gogs/.env.example gogs/.env
 
-# Set up nginx configs
-cp nginx/.env.example nginx/.env
-
+# Start all services
 ./startup.sh
 ```
