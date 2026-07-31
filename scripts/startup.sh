@@ -7,7 +7,7 @@ echo "Starting Gateway Nginx"
 cd ../gateway && docker-compose up -d && cd ..
 
 echo "Starting App-Proxy Nginx"
-cd ../app-proxy && docker-compose up -d && cd ..
+cd app-proxy && docker-compose up -d && cd ..
 
 echo "Starting Gogs"
-cd ../gogs && docker-compose up -d && cd ..
+cd gogs && docker-compose up -d && cd ..
