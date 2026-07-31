@@ -4,7 +4,7 @@ services:
     container_name: gateway
     restart: always
     ports:
-      - "30080:80"
+      - "33021:33021"  # gogs
     volumes:
       - ./nginx/conf:/etc/nginx/conf.d/
     networks:
