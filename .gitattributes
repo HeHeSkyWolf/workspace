@@ -13,3 +13,6 @@
 
 # Gogs
 *.ini text eol=lf
+
+# Nginx
+*.conf text eol=lf
