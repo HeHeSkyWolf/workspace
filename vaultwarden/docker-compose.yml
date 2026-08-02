@@ -5,11 +5,10 @@ services:
     restart: unless-stopped
     expose:
       - "80"
-    ports:
-      - "30080:80"
     environment:
       - WEBSOCKET_ENABLED=true
       - SIGNUPS_ALLOWED=true
+      - DOMAIN=https://vaultwarden.localhost
     volumes:
       - ./vw-data/:/data/
     networks:
