@@ -1,7 +1,10 @@
 #!/bin/bash
 
+echo "Stopping Vaultwarden"
+cd ../vaultwarden && docker-compose down && cd ..
+
 echo "Stopping Gogs"
-cd ../gogs && docker-compose down && cd ..
+cd gogs && docker-compose down && cd ..
 
 echo "Stopping App-Proxy Nginx"
 cd app-proxy && docker-compose down && cd ..
