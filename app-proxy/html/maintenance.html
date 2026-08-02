@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Maintenance</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #f6f8fa;
+    color: #24292f;
+    padding: 1.5rem;
+  }
+  .card {
+    max-width: 34rem;
+    width: 100%;
+    background: #fff;
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    box-shadow: 0 1px 3px rgba(27, 31, 35, 0.08);
+  }
+  .icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1.25rem;
+    border-radius: 50%;
+    background: #f1f3f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon svg { width: 28px; height: 28px; }
+  h1 { font-size: 1.35rem; font-weight: 600; margin-bottom: 0.5rem; }
+  p { color: #57606a; line-height: 1.6; font-size: 0.95rem; }
+  .status {
+    display: inline-block;
+    margin-top: 1.25rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    color: #9a6700;
+    background: #fff8c5;
+    border: 1px solid #d4a72c;
+    border-radius: 999px;
+    padding: 0.35rem 0.9rem;
+  }
+  .footer { margin-top: 1.5rem; font-size: 0.8rem; color: #8c959f; }
+</style>
+</head>
+<body>
+  <div class="card">
+    <div class="icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#57606a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+        <line x1="12" y1="9" x2="12" y2="13"></line>
+        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+      </svg>
+    </div>
+    <h1>Service temporarily unavailable</h1>
+    <p>We are performing scheduled maintenance right now and will be back shortly. Please try again in a few minutes.</p>
+    <span class="status">UNDER MAINTENANCE</span>
+    <div class="footer">If this persists, please contact your administrator.</div>
+  </div>
+</body>
+</html>

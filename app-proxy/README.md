@@ -32,12 +32,10 @@ cp .env.example .env
 Both this service and the gateway mount `nginx-certs/` as `/etc/nginx/ssl`. Generate once and copy into both:
 
 ```bash
-mkdir -p nginx-certs
 openssl req -x509 -nodes -newkey rsa:2048 -days 365 \
   -keyout nginx-certs/localhost.key \
   -out nginx-certs/localhost.crt \
   -subj "/CN=*.localhost"
-cp nginx-certs/localhost.crt nginx-certs/localhost.key ../gateway/nginx-certs/
 ```
 
 > The `nginx-certs/` directory is git-ignored (`**/nginx-certs/`) — do not commit private keys.
@@ -49,39 +47,6 @@ For Let's Encrypt instead, see [Using Let's Encrypt](#using-lets-encrypt).
 ```bash
 docker-compose up -d
 ```
-
-Or via the workspace-wide script: `../scripts/startup.sh`.
-
-## Access
-
-- Vaultwarden: `https://vaultwarden.localhost/` (map `vaultwarden.localhost` to the host in your DNS/hosts file)
-- Gogs via gateway: `http://<host>:33021/` — the gateway proxies to this container over HTTPS
-
-## Using Let's Encrypt
-
-Let's Encrypt only issues certificates for public domains (not `.localhost` or IPs). To use it:
-
-1. Point a public domain (e.g. `vaultwarden.example.com`) at the machine and make port 80 reachable.
-2. Issue the cert on the host:
-   ```bash
-   sudo certbot certonly --webroot -w /usr/share/nginx/html \
-     -d vaultwarden.example.com -d gogs.example.com
-   ```
-3. Mount the certs into this container by adding to `docker-compose.yml`:
-   ```yaml
-   volumes:
-     - /etc/letsencrypt:/etc/letsencrypt:ro
-   ```
-4. Update `server_name` and `ssl_certificate` paths in `nginx/conf/*.conf`:
-   ```nginx
-   server_name vaultwarden.example.com;
-   ssl_certificate     /etc/letsencrypt/live/vaultwarden.example.com/fullchain.pem;
-   ssl_certificate_key /etc/letsencrypt/live/vaultwarden.example.com/privkey.pem;
-   ```
-5. Set up auto-renewal with a reload hook:
-   ```bash
-   sudo certbot renew --deploy-hook "docker exec app-proxy nginx -s reload"
-   ```
 
 ## Notes
 
