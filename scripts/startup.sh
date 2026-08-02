@@ -14,3 +14,6 @@ cd gogs && docker-compose up -d && cd ..
 
 echo "Starting Vaultwarden"
 cd vaultwarden && docker-compose up -d && cd ..
+
+echo "Starting Linkding"
+cd linkding && docker-compose up -d && cd ..

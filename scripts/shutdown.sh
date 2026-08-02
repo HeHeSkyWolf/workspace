@@ -3,6 +3,9 @@
 echo "Stopping Vaultwarden"
 cd ../vaultwarden && docker-compose down && cd ..
 
+echo "Stopping Linkding"
+cd linkding && docker-compose down && cd ..
+
 echo "Stopping Gogs"
 cd gogs && docker-compose down && cd ..
 
