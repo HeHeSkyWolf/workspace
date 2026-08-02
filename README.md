@@ -9,7 +9,7 @@ Self-hosted development workspace infrastructure running in Docker containers.
 | **gateway** | Edge reverse proxy routes to app-proxy | `nginx:1.30.4-alpine` |
 | **app-proxy** | Internal reverse proxy, routes to backend services by hostname | `nginx:1.30.4-alpine` |
 | **Gogs** | Self-hosted Git service ([gogs.io](https://gogs.io/)) | `gogs/gogs:0.14.3` |
-| **Vaultwarden** | Self-hosted password manager (Bitwarden-compatible) | `vaultwarden/server:latest` |
+| **Vaultwarden** | Self-hosted password manager (Bitwarden-compatible) | `vaultwarden/server:1.37.1-alpine` |
 
 See [gateway/README.md](gateway/README.md), [gogs/README.md](gogs/README.md), and [vaultwarden/README.md](vaultwarden/README.md) for service-specific details.
 
