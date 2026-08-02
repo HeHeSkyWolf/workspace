@@ -1,0 +1,32 @@
+services:
+  linkding:
+    image: sissbruecker/linkding:${LINKDING_TAG}
+    container_name: linkding
+    restart: unless-stopped
+    expose:
+      - "9090"
+    environment:
+      - LD_CONTEXT_PATH=${LD_CONTEXT_PATH}
+      - LD_SUPERUSER_NAME=${LD_SUPERUSER_NAME}
+      - LD_SUPERUSER_PASSWORD=${LD_SUPERUSER_PASSWORD}
+      - LD_DISABLE_BACKGROUND_TASKS=${LD_DISABLE_BACKGROUND_TASKS}
+      - LD_DISABLE_URL_VALIDATION=${LD_DISABLE_URL_VALIDATION}
+      - LD_ENABLE_AUTH_PROXY=${LD_ENABLE_AUTH_PROXY}
+      - LD_AUTH_PROXY_USERNAME_HEADER=${LD_AUTH_PROXY_USERNAME_HEADER}
+      - LD_AUTH_PROXY_LOGOUT_URL=${LD_AUTH_PROXY_LOGOUT_URL}
+      - LD_DISABLE_LOGIN_FORM=${LD_DISABLE_LOGIN_FORM}
+      - LD_CSRF_TRUSTED_ORIGINS=${LD_CSRF_TRUSTED_ORIGINS}
+      - LD_DB_ENGINE=${LD_DB_ENGINE}
+      - LD_DB_DATABASE=${LD_DB_DATABASE}
+      - LD_DB_USER=${LD_DB_USER}
+      - LD_DB_PASSWORD=${LD_DB_PASSWORD}
+      - LD_DB_HOST=${LD_DB_HOST}
+      - LD_DB_OPTIONS=${LD_DB_OPTIONS}
+    volumes:
+      - "${LD_HOST_DATA_DIR:-./data}:/etc/linkding/data"
+    networks:
+      - workplace-net
+
+networks:
+  workplace-net:
+    external: true
