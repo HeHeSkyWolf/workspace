@@ -16,3 +16,9 @@ services:
       retries: 3
       start_period: 20s
     restart: unless-stopped
+    networks:
+      - workplace-net
+
+networks:
+  workplace-net:
+    external: true
